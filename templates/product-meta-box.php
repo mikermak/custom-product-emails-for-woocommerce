@@ -1,5 +1,5 @@
 <div class="cpe-product-email-settings">
-    
+
     <!-- Enable/Disable Toggle -->
     <div class="cpe-field">
         <label class="cpe-toggle">
@@ -13,17 +13,17 @@
     </div>
 
     <div class="cpe-email-settings" style="<?php echo $enabled !== 'yes' ? 'display:none;' : ''; ?>">
-        
+
         <!-- Email Subject -->
         <div class="cpe-field">
             <label for="cpe_email_subject">
-                <strong>📬 Email Onderwerp</strong>
+                <strong><?php echo Custom_Product_Emails_WC::get_icon('mail'); ?> Email Onderwerp</strong>
             </label>
-            <input 
-                type="text" 
-                id="cpe_email_subject" 
-                name="cpe_email_subject" 
-                class="widefat" 
+            <input
+                type="text"
+                id="cpe_email_subject"
+                name="cpe_email_subject"
+                class="widefat"
                 value="<?php echo esc_attr($subject); ?>"
                 placeholder="Bedankt voor je aankoop van {product_name}"
             >
@@ -33,13 +33,13 @@
         <!-- Email Heading -->
         <div class="cpe-field">
             <label for="cpe_email_heading">
-                <strong>📋 Email Heading</strong>
+                <strong><?php echo Custom_Product_Emails_WC::get_icon('clipboard'); ?> Email Heading</strong>
             </label>
-            <input 
-                type="text" 
-                id="cpe_email_heading" 
-                name="cpe_email_heading" 
-                class="widefat" 
+            <input
+                type="text"
+                id="cpe_email_heading"
+                name="cpe_email_heading"
+                class="widefat"
                 value="<?php echo esc_attr($heading); ?>"
                 placeholder="Bedankt voor je bestelling!"
             >
@@ -49,9 +49,9 @@
         <!-- Email Content -->
         <div class="cpe-field">
             <label for="cpe_email_content">
-                <strong>✍️ Email Inhoud</strong>
+                <strong><?php echo Custom_Product_Emails_WC::get_icon('pen-tool'); ?> Email Inhoud</strong>
             </label>
-            <?php 
+            <?php
             wp_editor($content, 'cpe_email_content', array(
                 'textarea_name' => 'cpe_email_content',
                 'textarea_rows' => 15,
@@ -61,7 +61,7 @@
                     'toolbar1' => 'formatselect,bold,italic,underline,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,unlink,forecolor,backcolor',
                     'toolbar2' => 'undo,redo,removeformat,charmap,outdent,indent,hr,pastetext'
                 )
-            )); 
+            ));
             ?>
             <p class="description">
                 De hoofdinhoud van je email. Gebruik HTML of de visual editor. De email wordt automatisch gestyled in jouw WooCommerce email stijl.
@@ -70,7 +70,7 @@
 
         <!-- Shortcodes Info -->
         <div class="cpe-shortcodes-info">
-            <h4>🏷️ Beschikbare Shortcodes</h4>
+            <h4><?php echo Custom_Product_Emails_WC::get_icon('tag'); ?> Beschikbare Shortcodes</h4>
             <div class="cpe-shortcodes-list">
                 <span class="cpe-shortcode" data-shortcode="{customer_first_name}">{customer_first_name}</span>
                 <span class="cpe-shortcode" data-shortcode="{customer_last_name}">{customer_last_name}</span>
@@ -85,23 +85,23 @@
                 <span class="cpe-shortcode" data-shortcode="{site_name}">{site_name}</span>
                 <span class="cpe-shortcode" data-shortcode="{site_url}">{site_url}</span>
             </div>
-            <p class="description">Klik op een shortcode om deze te kopiëren.</p>
+            <p class="description">Klik op een shortcode om deze te kopieren.</p>
         </div>
 
         <!-- Test Email -->
         <div class="cpe-test-email">
-            <h4>🧪 Test Email Verzenden</h4>
+            <h4><?php echo Custom_Product_Emails_WC::get_icon('flask'); ?> Test Email Verzenden</h4>
             <p>Stuur een test email om te zien hoe deze eruit ziet:</p>
             <div class="cpe-test-email-form">
-                <input 
-                    type="email" 
-                    id="cpe_test_email_address" 
-                    class="regular-text" 
+                <input
+                    type="email"
+                    id="cpe_test_email_address"
+                    class="regular-text"
                     placeholder="jouw@email.nl"
                     value="<?php echo esc_attr(wp_get_current_user()->user_email); ?>"
                 >
                 <button type="button" id="cpe_send_test_email" class="button button-secondary">
-                    ✉️ Stuur Test Email
+                    <?php echo Custom_Product_Emails_WC::get_icon('send', 16); ?> Stuur Test Email
                 </button>
                 <span class="cpe-test-email-result"></span>
             </div>
@@ -124,9 +124,18 @@
 }
 
 .cpe-field label strong {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 8px;
     font-size: 14px;
+}
+
+.cpe-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 .cpe-toggle {
@@ -186,6 +195,9 @@
 .cpe-shortcodes-info h4 {
     margin-top: 0;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .cpe-shortcodes-list {
@@ -223,6 +235,9 @@
 .cpe-test-email h4 {
     margin-top: 0;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .cpe-test-email-form {
@@ -234,6 +249,9 @@
 
 .cpe-test-email-result {
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .cpe-test-email-result.success {
@@ -244,6 +262,12 @@
     color: #d63638;
 }
 
+#cpe_send_test_email {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
 #cpe_send_test_email:disabled {
     opacity: 0.5;
 }
@@ -251,6 +275,14 @@
 
 <script>
 jQuery(document).ready(function($) {
+    // Icons for JavaScript usage
+    var icons = {
+        send: '<?php echo addslashes(Custom_Product_Emails_WC::get_icon('send', 16)); ?>',
+        loader: '<?php echo addslashes(Custom_Product_Emails_WC::get_icon('loader', 16)); ?>',
+        check: '<?php echo addslashes(Custom_Product_Emails_WC::get_icon('check', 16)); ?>',
+        x: '<?php echo addslashes(Custom_Product_Emails_WC::get_icon('x', 16)); ?>'
+    };
+
     // Toggle email settings visibility
     $('input[name="cpe_email_enabled"]').on('change', function() {
         if ($(this).is(':checked')) {
@@ -267,7 +299,7 @@ jQuery(document).ready(function($) {
             // Visual feedback
             var $el = $(event.target);
             var originalText = $el.text();
-            $el.text('✓ Gekopieerd!');
+            $el.html(icons.check + ' Gekopieerd!');
             setTimeout(function() {
                 $el.text(originalText);
             }, 1500);
@@ -282,11 +314,11 @@ jQuery(document).ready(function($) {
         var productId = $('#post_ID').val();
 
         if (!email) {
-            $result.removeClass('success').addClass('error').text('Voer een email adres in!');
+            $result.removeClass('success').addClass('error').html(icons.x + ' Voer een email adres in!');
             return;
         }
 
-        $btn.prop('disabled', true).text('⏳ Verzenden...');
+        $btn.prop('disabled', true).html(icons.loader + ' Verzenden...');
         $result.text('');
 
         $.ajax({
@@ -300,16 +332,16 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
-                    $result.removeClass('error').addClass('success').text('✓ ' + response.data.message);
+                    $result.removeClass('error').addClass('success').html(icons.check + ' ' + response.data.message);
                 } else {
-                    $result.removeClass('success').addClass('error').text('✗ ' + response.data.message);
+                    $result.removeClass('success').addClass('error').html(icons.x + ' ' + response.data.message);
                 }
             },
             error: function() {
-                $result.removeClass('success').addClass('error').text('✗ Er ging iets mis!');
+                $result.removeClass('success').addClass('error').html(icons.x + ' Er ging iets mis!');
             },
             complete: function() {
-                $btn.prop('disabled', false).text('✉️ Stuur Test Email');
+                $btn.prop('disabled', false).html(icons.send + ' Stuur Test Email');
             }
         });
     });

@@ -1,27 +1,27 @@
 <div class="wrap cpe-admin-wrap">
-    <h1>📧 Custom Product Emails</h1>
-    
+    <h1><?php echo Custom_Product_Emails_WC::get_icon('mail', 24); ?> Custom Product Emails</h1>
+
     <div class="cpe-dashboard">
         <!-- Statistieken Cards -->
         <div class="cpe-stats-grid">
             <div class="cpe-stat-card">
-                <div class="cpe-stat-icon">🛍️</div>
+                <div class="cpe-stat-icon"><?php echo Custom_Product_Emails_WC::get_icon('shopping-bag', 32); ?></div>
                 <div class="cpe-stat-content">
                     <h3><?php echo $total_products; ?></h3>
                     <p>Totaal Producten</p>
                 </div>
             </div>
-            
+
             <div class="cpe-stat-card highlight">
-                <div class="cpe-stat-icon">✉️</div>
+                <div class="cpe-stat-icon"><?php echo Custom_Product_Emails_WC::get_icon('mail', 32); ?></div>
                 <div class="cpe-stat-content">
                     <h3><?php echo $products_with_custom_emails; ?></h3>
                     <p>Producten met Custom Email</p>
                 </div>
             </div>
-            
+
             <div class="cpe-stat-card">
-                <div class="cpe-stat-icon">📊</div>
+                <div class="cpe-stat-icon"><?php echo Custom_Product_Emails_WC::get_icon('bar-chart', 32); ?></div>
                 <div class="cpe-stat-content">
                     <h3><?php echo $products_with_custom_emails > 0 ? round(($products_with_custom_emails / $total_products) * 100) : 0; ?>%</h3>
                     <p>Email Coverage</p>
@@ -31,7 +31,7 @@
 
         <!-- Uitleg sectie -->
         <div class="cpe-info-box">
-            <h2>🚀 Hoe werkt het?</h2>
+            <h2><?php echo Custom_Product_Emails_WC::get_icon('rocket'); ?> Hoe werkt het?</h2>
             <ol>
                 <li>Ga naar een <strong>Product</strong> en scroll naar de <strong>"Custom Product Email"</strong> sectie</li>
                 <li>Schakel de custom email <strong>in</strong> voor dat product</li>
@@ -43,9 +43,9 @@
 
         <!-- Beschikbare shortcodes -->
         <div class="cpe-shortcodes-box">
-            <h2>🏷️ Beschikbare Shortcodes</h2>
+            <h2><?php echo Custom_Product_Emails_WC::get_icon('tag'); ?> Beschikbare Shortcodes</h2>
             <p>Gebruik deze shortcodes in je email onderwerp, heading of inhoud:</p>
-            
+
             <div class="cpe-shortcodes-grid">
                 <div class="cpe-shortcode-item">
                     <code>{customer_first_name}</code>
@@ -101,7 +101,7 @@
         <!-- Producten met custom emails -->
         <?php if (!empty($products_with_emails)): ?>
         <div class="cpe-products-list">
-            <h2>📦 Producten met Custom Email</h2>
+            <h2><?php echo Custom_Product_Emails_WC::get_icon('package'); ?> Producten met Custom Email</h2>
             <table class="wp-list-table widefat fixed striped">
                 <thead>
                     <tr>
@@ -112,7 +112,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($products_with_emails as $prod): 
+                    <?php foreach ($products_with_emails as $prod):
                         $product = wc_get_product($prod->ID);
                         $subject = get_post_meta($prod->ID, '_cpe_email_subject', true);
                     ?>
@@ -130,7 +130,7 @@
                         </td>
                         <td>
                             <a href="<?php echo get_edit_post_link($prod->ID); ?>" class="button button-small">
-                                ✏️ Bewerken
+                                <?php echo Custom_Product_Emails_WC::get_icon('pencil', 16); ?> Bewerken
                             </a>
                         </td>
                     </tr>
@@ -140,7 +140,7 @@
         </div>
         <?php else: ?>
         <div class="cpe-empty-state">
-            <div class="cpe-empty-icon">📭</div>
+            <div class="cpe-empty-icon"><?php echo Custom_Product_Emails_WC::get_icon('inbox', 48); ?></div>
             <h3>Nog geen custom emails ingesteld</h3>
             <p>Ga naar een product en schakel de custom email in om te beginnen!</p>
             <a href="<?php echo admin_url('edit.php?post_type=product'); ?>" class="button button-primary">
@@ -151,7 +151,7 @@
 
         <!-- Tips -->
         <div class="cpe-tips-box">
-            <h2>💡 Tips voor effectieve product emails</h2>
+            <h2><?php echo Custom_Product_Emails_WC::get_icon('lightbulb'); ?> Tips voor effectieve product emails</h2>
             <ul>
                 <li><strong>Personaliseer:</strong> Gebruik shortcodes zoals {customer_first_name} om de email persoonlijk te maken</li>
                 <li><strong>Wees specifiek:</strong> Vermeld specifieke productinformatie zoals gebruiksinstructies of downloadlinks</li>

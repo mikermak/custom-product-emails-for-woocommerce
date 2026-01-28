@@ -3,6 +3,24 @@
     max-width: 1400px;
 }
 
+.cpe-admin-wrap h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Icon Styling */
+.cpe-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.cpe-icon svg {
+    display: block;
+}
+
 .cpe-dashboard {
     background: white;
     padding: 30px;
@@ -40,8 +58,14 @@
 }
 
 .cpe-stat-icon {
-    font-size: 48px;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cpe-stat-icon .cpe-icon svg {
+    width: 32px;
+    height: 32px;
 }
 
 .cpe-stat-content h3 {
@@ -68,6 +92,9 @@
 .cpe-info-box h2 {
     margin-top: 0;
     color: #667eea;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .cpe-info-box ol {
@@ -90,6 +117,9 @@
 
 .cpe-shortcodes-box h2 {
     margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .cpe-shortcodes-grid {
@@ -131,6 +161,9 @@
 
 .cpe-products-list h2 {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .cpe-products-list table {
@@ -155,9 +188,15 @@
 }
 
 .cpe-empty-icon {
-    font-size: 80px;
     margin-bottom: 20px;
     opacity: 0.5;
+    display: flex;
+    justify-content: center;
+}
+
+.cpe-empty-icon .cpe-icon svg {
+    width: 48px;
+    height: 48px;
 }
 
 .cpe-empty-state h3 {
@@ -181,6 +220,9 @@
 .cpe-tips-box h2 {
     margin-top: 0;
     color: #e17055;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .cpe-tips-box ul {
@@ -237,4 +279,11 @@
 .cpe-empty-state .button-primary:hover {
     background: #5568d3;
     border-color: #5568d3;
+}
+
+/* Button with icon */
+.cpe-products-list .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
