@@ -1,0 +1,240 @@
+/* Admin Dashboard Styling */
+.cpe-admin-wrap {
+    max-width: 1400px;
+}
+
+.cpe-dashboard {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Stats Grid */
+.cpe-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.cpe-stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.cpe-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.cpe-stat-card.highlight {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.cpe-stat-icon {
+    font-size: 48px;
+    line-height: 1;
+}
+
+.cpe-stat-content h3 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.cpe-stat-content p {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* Info Box */
+.cpe-info-box {
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    border-left: 4px solid #667eea;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.cpe-info-box h2 {
+    margin-top: 0;
+    color: #667eea;
+}
+
+.cpe-info-box ol {
+    padding-left: 20px;
+}
+
+.cpe-info-box li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Shortcodes Box */
+.cpe-shortcodes-box {
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.cpe-shortcodes-box h2 {
+    margin-top: 0;
+}
+
+.cpe-shortcodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cpe-shortcode-item {
+    background: white;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cpe-shortcode-item code {
+    background: #2271b1;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.cpe-shortcode-item span {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Products List */
+.cpe-products-list {
+    margin-bottom: 30px;
+}
+
+.cpe-products-list h2 {
+    margin-bottom: 15px;
+}
+
+.cpe-products-list table {
+    background: white;
+}
+
+.cpe-products-list table img {
+    border-radius: 4px;
+}
+
+.cpe-products-list table td {
+    vertical-align: middle;
+}
+
+/* Empty State */
+.cpe-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.cpe-empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.cpe-empty-state h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cpe-empty-state p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Tips Box */
+.cpe-tips-box {
+    background: linear-gradient(135deg, #ffeaa715 0%, #fbab7e15 100%);
+    border-left: 4px solid #ffeaa7;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.cpe-tips-box h2 {
+    margin-top: 0;
+    color: #e17055;
+}
+
+.cpe-tips-box ul {
+    padding-left: 20px;
+}
+
+.cpe-tips-box li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cpe-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cpe-shortcodes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cpe-stat-card,
+.cpe-info-box,
+.cpe-shortcodes-box,
+.cpe-products-list,
+.cpe-tips-box {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Button Styling */
+.cpe-empty-state .button-primary {
+    background: #667eea;
+    border-color: #667eea;
+    text-shadow: none;
+    box-shadow: none;
+    padding: 10px 30px;
+    height: auto;
+    font-size: 15px;
+}
+
+.cpe-empty-state .button-primary:hover {
+    background: #5568d3;
+    border-color: #5568d3;
+}
